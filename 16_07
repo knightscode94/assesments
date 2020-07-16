@@ -1,0 +1,96 @@
+Sakila database Exercises
+Each Exercise should return at least one record, according to its individual specification. These exercises get progressively more difficult as they progress.
+    1. Select all Actors from the table.
+select * from actor;
+
+    2. Find the actor with the first name “John”.
+select * from actor where first_name='John';
+
+    3. Find all actors with the surname “Neeson”.
+select * from actor where last_name='Neeson';
+
+    4. Find all actors with Id numbers divisible by 10.
+mysql> select * from actor where (actor_id % 10)=0;
+
+    5. What is the description of the movie with ID of 100?
+select description from film where film_id=100;
+
+    6. Find every movie with a rating of “R”.
+select title from film where rating='R';
+
+    7. Find every movie except those with a rating of “R”.
+select title from film where rating!='R';
+
+    8. Find the 10 shortest movies.
+select * from film order by rating limit 10;
+
+    9. Now return only the movie titles.
+select title from film order by rating limit 10;
+
+    10. Find all movies with Deleted Scenes.
+select title from film where special_features='Deleted Scenes';
+
+    11. Which last names are not repeated?
+ select distinct last_name from actor;
+
+    12. Which last names appear more than once?
+select last_name, count(*) from actor group by last_name having count(*) >1;
+
+    13. Which actor has appeared in the most films?
+i dont understand why it doesnt work for me :(
+
+    14. Is ‘Academy Dinosaur’ available for rent from Store 1?
+select film_id from inventory where store_id=1;
+select film_id from film where title='academy dinosaur';
+select * from inventory where store_id=1 and film_id=1;
+
+    15. When is ‘Academy Dinosaur’ due?
+select * from rental where inventory_id=4;
+
+    16. What is that average running time of all the films in the database?
+select avg(length) from film;
+
+    17. What is the average running time of films by category?
+i keep messing up the joins :( i dont get why i cant understand it!!!
+
+    18. How many movies have Robots in them?
+select count(*) from film where description like '%robot%';
+
+    19. Find the movie(s) with the longest runtime.
+select max(length) from film;
+select title from film where length=185;
+
+    20. Count how many movies were released in 2010.
+select count(title) from film where release_year=2010;
+
+    21. Find the titles of all horror movies.
+select category_id from category where name='horror';
+select film_id from film_category where category_id=11;
+keep screwing up the joins...
+
+    22. Return the full name of the staff member – in a column named full_name – with the ID of 1.
+select name from staff_list where id=1;
+
+    23. Retrieve all movies that Fred Costner has appeared in.
+select actor_id from actor where first_name ='Fred' and last_name='costner';
+select film_id from film_actor where actor_id=16;
+
+    24. Find out which location has the most copies of BUCKET BROTHERHOOD.
+select film_id from film where title='bucket brotherhood';
+select * from inventory where film_id=103 order by inventory_id desc;
+select * from address where address_id=2;
+
+    25. How many distinct countries are there?
+select count(distinct(location)) from address;
+
+    1. What are the names of all the languages in the database (sorted alphabetically)?
+ select name from language order by name;
+
+    26. Return the full names (first and last) of actors with “son” in their last name, ordered by their first name.
+select last_name, first_name from actor where last_name like "%son%";
+
+    27. Create a list of categories and the number of films for each category.
+
+    28. Create a list of actors and the number of movies by each actor.
+
+    29. Which actor/actress has appeared in the most movies?
