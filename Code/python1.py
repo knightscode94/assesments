@@ -163,7 +163,7 @@ def five(input):
 	list=input.split(",")
 
 	return []
-	pass
+pass
 
 	# <QUESTION 6>
 
@@ -242,13 +242,13 @@ def seven(input):
 	# You may need to create a list of numbers from 0 to i, take a look at help(range).
 
 def eight(input):
-	result=0
-	for num in range(input,1,-1):
-		result=num*input
-
+	result=1
+	list1=[]
+	for num in range(input,0,-1):
+		list1.append(num)
+	for x in list1:
+		result *= x
 	return result
-
-print(eight(4))
 
 	# <QUESTION 9>
 
@@ -269,7 +269,17 @@ print(eight(4))
 	# Take a look at the documentation for Strings, List and range.
 
 def nine(inputString, char):
-	return -1
+	res = 0
+	for i in range(0, len(inputString)): 
+		if inputString[i] == char: 
+			res = i + 1
+			break
+		
+	if res == 0: 
+		return -1
+	else: 
+		return res
+
 
 	# <QUESTION 10>
 
@@ -289,4 +299,14 @@ def nine(inputString, char):
 	# How do we find the length of a container, take a look at help(len), you will also need to look at help(str) for String manipulation.
  
 def ten(string, int, char):
-	return False
+	res = 0
+	for i in range(0, len(string)): 
+		if string[i] == char: 
+			res = i + 1
+			break
+		
+	if res == int: 
+		return True
+	else: 
+		return False
+
