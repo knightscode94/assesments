@@ -160,10 +160,13 @@ def four(arg1):
 	# help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).
 
 def five(input):
-	list1=input.split(",")
+	input=input.split(",")
+	output = []
+	for i in input:
+		if input[i] == "False":
+			output.append(input[i-2])
 
-	return []
-pass
+	return list(dict.fromkeys(output))
 
 	# <QUESTION 6>
 
@@ -269,6 +272,8 @@ def eight(input):
 	# Take a look at the documentation for Strings, List and range.
 
 def nine(inputString, char):
+	stringinput=inputString.split()
+	inputString="".join(stringinput)
 	res = 0
 	for i in range(0, len(inputString)): 
 		if inputString[i] == char: 
