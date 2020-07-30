@@ -162,6 +162,7 @@ def six(input):
 	else:
 		return False
 
+
     # <QUESTION 7>
 
     # Given three ints, a b c, one of them is small, one is medium and one is large.
